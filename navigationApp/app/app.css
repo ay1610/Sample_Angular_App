@@ -1,0 +1,22 @@
+/* app css stylesheet */
+
+.error{
+  color:red;
+}
+#depart-time  tr.text-center, #return-time  tr.text-center{
+  display: none;
+}
+.mtb30{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.progress-bar{
+  color:#000;
+}
+@media(min-width:768px){
+  .tab-content{
+    height:430px;
+    padding-top: 30px;
+  }
+}
+

@@ -1,0 +1,77 @@
+<form name="addCustomerForm" class="form-vertical" role="form">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-12">
+                <label for="firstname">First Name *</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <input type="text" name="firstName" ng-model="customer.firstName" class="form-control" id="firstname"
+                       placeholder="First name" required/>
+                <span class="error" ng-show="addCustomerForm.firstName.$dirty && addCustomerForm.firstName.$invalid">
+                    <span ng-show="addCustomerForm.firstName.$error.required">First Name is required .</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-12">
+                <label for="lastname">Last Name *</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <input type="text" name="lastName" ng-model="customer.lastName" class="form-control" id="lastname"
+                       placeholder="Last name" required/>
+                <span class="error" ng-show="addCustomerForm.lastName.$dirty && addCustomerForm.lastName.$invalid">
+                    <span ng-show="addCustomerForm.lastName.$error.required">Last Name is required.</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-12">
+                <label for="email">Email *</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <input type="email" name="email" ng-model="customer.email" class="form-control" id="email"
+                       placeholder="Email" required/>
+            <span class="error" ng-show="addCustomerForm.email.$dirty && addCustomerForm.email.$invalid">
+                <span ng-show="addCustomerForm.email.$error.required">Email is required.</span>
+                <span class="error" ng-show="addCustomerForm.email.$error.email">Not valid email!</span>
+            </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-12">
+                <label for="telephone">Telephone *</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <input type="text" name="telephone" ng-model="customer.telephone" ng-minlength="10" class="form-control"
+                       id="telephone" ui-mask="(999) 999-9999" required/>
+            <span class="error" ng-show="addCustomerForm.telephone.$dirty && addCustomerForm.telephone.$invalid">
+                <span ng-show="addCustomerForm.telephone.$error.required">Phone number is required.</span>
+            </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5">
+                <button type="submit" ng-disabled="addCustomerForm.$invalid" class="btn btn-default btn-sm"
+                        ng-click="proceed()">{{buttonLabel}}
+                </button>
+            </div>
+        </div>
+    </div>
+
+</form>

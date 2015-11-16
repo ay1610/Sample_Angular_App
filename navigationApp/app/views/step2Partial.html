@@ -1,0 +1,93 @@
+<form name="addCustomerLocationForm" ng-model="addCustomerLocationForm" class="form-vertical" role="form">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-12">
+                <label for="location">Location *</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <input type="text" ng-model="customer.location" name="location" ng-blur="validateLocation()" required
+                       id="location" placeholder="Enter Location"
+                       typeahead="state for state in data.states | filter:$viewValue | limitTo:8" class="form-control">
+            <span class="error"
+                  ng-show="addCustomerLocationForm.location.$dirty && addCustomerLocationForm.location.$invalid">
+                <span ng-show="addCustomerLocationForm.location.$error.required">Location is required.</span>
+            </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5">
+                <label for="departdate">Depart Date *</label>
+
+                <div>
+                    <p class="input-group">
+                        <input type="text" id="departdate" name="departdate" class="form-control" ng-change="returnDateCheck()"
+                               datepicker-popup="dd-MMMM-yyyy" ng-model="customer.departdate" is-open="openedDepartDate"
+                               min-date="minDate" max-date="'2045-06-22'" datepicker-options="dateOptions"
+                               ng-required="true" close-text="Close" readonly/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="openDepartDate($event)"><i
+                                class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                    </p>
+                    <span class="error"
+                          ng-show="addCustomerLocationForm.departdate.$dirty && addCustomerLocationForm.departdate.$invalid">
+                        <span ng-show="addCustomerLocationForm.departdate.$error.required">Departure Date is required.</span>
+                    </span>
+                </div>
+                <label for="returndate">Return Date *</label>
+
+                <div>
+                    <p class="input-group">
+                        <input type="text" id="returndate" name="returndate" ng-change="returnDateCheck()" class="form-control"
+                               datepicker-popup="dd-MMMM-yyyy" ng-model="customer.returndate" is-open="openedReturnDate"
+                               min-date="minDate" max-date="'2045-06-22'" datepicker-options="dateOptions"
+                               ng-required="true" close-text="Close" readonly/>
+                        <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="openReturnDate($event)"><i
+                                class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+
+                    </p>
+                    <span class="error"
+                          ng-show="addCustomerLocationForm.returndate.$dirty && addCustomerLocationForm.returndate.$invalid">
+                        <span ng-show="addCustomerLocationForm.returndate.$error.required">Return Date is required.</span>
+                    </span>
+                    <span class="error" ng-show="returnDateError">Return Date should be greater than Depart Date</span>
+
+                </div>
+            </div>
+            <div class="col-sm-6 col-sm-offset-1">
+                <label>Depart Time *</label>
+
+                <div>
+                    <p class="input-group">
+                        <timepicker id="depart-time" ng-model="customer.departTime"></timepicker>
+                    </p>
+                    <!--<input type="text" ng-model="customer.departdate" class="form-control" id="departdate" placeholder="Select Departure Date"/>-->
+                </div>
+                <label>Return Time *</label>
+
+                <div>
+                    <p class="input-group">
+                        <timepicker id="return-time" ng-model="customer.returnTime"></timepicker>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5">
+                <button type="submit" ng-disabled="addCustomerLocationForm.$invalid || returnDateError" class="btn btn-default btn-sm"
+                        ng-click="proceed()">{{buttonLabel}}
+                </button>
+            </div>
+        </div>
+    </div>
+
+</form>

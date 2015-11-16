@@ -1,0 +1,10 @@
+<div>
+    <p class="mtb30">
+        <a href="mailto:{{customer.email}}" target="_top">{{customer.firstName}} {{customer.lastName}}</a> ( <a href="tel://{{customer.telephone | tel}}">{{customer.telephone | tel}} </a>) will depart for {{customer.location}} on {{customer.departdate | date: 'MM/dd/yyyy'}} at {{customer.departTime | date:'HH:mm:ss a'}} and return on  {{customer.returndate | date: 'MM/dd/yyyy'}} at {{customer.returnTime | date:'HH:mm:ss a'}}
+    </p>
+</div>
+<div>
+    <p class="mtb30">
+        <button type="submit"  class="btn btn-default btn-sm" ng-click="proceed()">{{buttonLabel}}</button>
+    </p>
+</div>

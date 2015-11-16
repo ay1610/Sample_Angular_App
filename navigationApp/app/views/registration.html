@@ -1,0 +1,19 @@
+<div class="module">
+    <div>
+        <h1>
+            Customer App
+        </h1>
+        <tabset justified="true">
+            <tab ng-repeat="tab in tabs" active="tab.active" heading="{{tab.title}}" disabled="tab.disabled" select="tabSelected($index)">
+                <div ng-include="tab.content"></div>
+            </tab>
+        </tabset>
+        <div class="row">
+            <div class="col-sm-12">
+                <progressbar animate="false" value="customer.progress" type="success"><b>{{customer.progress}}%</b></progressbar>
+            </div>
+        </div>
+
+
+    </div>
+</div>
